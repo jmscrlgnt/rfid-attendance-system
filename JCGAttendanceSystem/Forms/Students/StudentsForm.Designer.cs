@@ -1,0 +1,202 @@
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace JCGAttendanceSystem.Forms.Students
+{
+    partial class StudentsForm
+    {
+        private TableLayoutPanel _rootLayout;
+        private Panel _toolbar;
+        private TextBox _search;
+        private Button _searchButton;
+        private CheckBox _includeInactive;
+        private Button _addButton;
+        private Button _editButton;
+        private Button _toggleActive;
+        private Panel _gridCard;
+        private DataGridView _grid;
+        private Label _empty;
+        private DataGridViewTextBoxColumn _studentNumberColumn;
+        private DataGridViewTextBoxColumn _studentNameColumn;
+        private DataGridViewTextBoxColumn _emailColumn;
+        private DataGridViewTextBoxColumn _courseColumn;
+        private DataGridViewTextBoxColumn _yearColumn;
+        private DataGridViewTextBoxColumn _sectionColumn;
+        private DataGridViewTextBoxColumn _rfidTagColumn;
+        private DataGridViewTextBoxColumn _statusColumn;
+
+        private void InitializeComponent()
+        {
+            this._rootLayout = new TableLayoutPanel();
+            this._toolbar = new Panel();
+            this._search = new TextBox();
+            this._searchButton = new Button();
+            this._includeInactive = new CheckBox();
+            this._addButton = new Button();
+            this._editButton = new Button();
+            this._toggleActive = new Button();
+            this._gridCard = new Panel();
+            this._grid = new DataGridView();
+            this._studentNumberColumn = new DataGridViewTextBoxColumn();
+            this._studentNameColumn = new DataGridViewTextBoxColumn();
+            this._emailColumn = new DataGridViewTextBoxColumn();
+            this._courseColumn = new DataGridViewTextBoxColumn();
+            this._yearColumn = new DataGridViewTextBoxColumn();
+            this._sectionColumn = new DataGridViewTextBoxColumn();
+            this._rfidTagColumn = new DataGridViewTextBoxColumn();
+            this._statusColumn = new DataGridViewTextBoxColumn();
+            this._empty = new Label();
+            ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
+            this.SuspendLayout();
+            this._rootLayout.Dock = DockStyle.Fill;
+            this._rootLayout.ColumnCount = 1;
+            this._rootLayout.RowCount = 2;
+            this._rootLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 94F));
+            this._rootLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            this._toolbar.BackColor = Color.White;
+            this._toolbar.BorderStyle = BorderStyle.FixedSingle;
+            this._toolbar.Dock = DockStyle.Fill;
+            this._toolbar.Margin = new Padding(0, 0, 0, 14);
+            this._toolbar.Size = new Size(1100, 94);
+            this._search.Font = new Font("Segoe UI", 10F);
+            this._search.Location = new Point(20, 27);
+            this._search.Name = "_search";
+            this._search.Size = new Size(330, 30);
+            this._searchButton.BackColor = Color.White;
+            this._searchButton.FlatAppearance.BorderColor = Color.FromArgb(210, 218, 226);
+            this._searchButton.FlatStyle = FlatStyle.Flat;
+            this._searchButton.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            this._searchButton.ForeColor = Color.FromArgb(31, 41, 55);
+            this._searchButton.Location = new Point(362, 23);
+            this._searchButton.Name = "_searchButton";
+            this._searchButton.Size = new Size(90, 38);
+            this._searchButton.Text = "Search";
+            this._includeInactive.AutoSize = true;
+            this._includeInactive.Font = new Font("Segoe UI", 9F);
+            this._includeInactive.Location = new Point(470, 31);
+            this._includeInactive.Name = "_includeInactive";
+            this._includeInactive.Text = "Show inactive";
+            this._addButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            this._addButton.BackColor = Color.FromArgb(30, 136, 229);
+            this._addButton.FlatAppearance.BorderSize = 0;
+            this._addButton.FlatStyle = FlatStyle.Flat;
+            this._addButton.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            this._addButton.ForeColor = Color.White;
+            this._addButton.Location = new Point(760, 22);
+            this._addButton.Name = "_addButton";
+            this._addButton.Size = new Size(120, 40);
+            this._addButton.Text = "Add Student";
+            this._editButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            this._editButton.BackColor = Color.White;
+            this._editButton.FlatAppearance.BorderColor = Color.FromArgb(210, 218, 226);
+            this._editButton.FlatStyle = FlatStyle.Flat;
+            this._editButton.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            this._editButton.ForeColor = Color.FromArgb(31, 41, 55);
+            this._editButton.Location = new Point(890, 22);
+            this._editButton.Name = "_editButton";
+            this._editButton.Size = new Size(90, 40);
+            this._editButton.Text = "Edit";
+            this._toggleActive.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            this._toggleActive.BackColor = Color.FromArgb(198, 40, 40);
+            this._toggleActive.FlatAppearance.BorderSize = 0;
+            this._toggleActive.FlatStyle = FlatStyle.Flat;
+            this._toggleActive.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            this._toggleActive.ForeColor = Color.White;
+            this._toggleActive.Location = new Point(990, 22);
+            this._toggleActive.Name = "_toggleActive";
+            this._toggleActive.Size = new Size(110, 40);
+            this._toggleActive.Text = "Deactivate";
+            this._toggleActive.Click += new System.EventHandler(this.ToggleActive_Click);
+            this._toolbar.Controls.Add(this._search);
+            this._toolbar.Controls.Add(this._searchButton);
+            this._toolbar.Controls.Add(this._includeInactive);
+            this._toolbar.Controls.Add(this._addButton);
+            this._toolbar.Controls.Add(this._editButton);
+            this._toolbar.Controls.Add(this._toggleActive);
+            this._rootLayout.Controls.Add(this._toolbar, 0, 0);
+            this._gridCard.BackColor = Color.White;
+            this._gridCard.BorderStyle = BorderStyle.FixedSingle;
+            this._gridCard.Dock = DockStyle.Fill;
+            this._gridCard.Padding = new Padding(18);
+            this._grid.AllowUserToAddRows = false;
+            this._grid.AllowUserToDeleteRows = false;
+            this._grid.AutoGenerateColumns = false;
+            this._grid.BackgroundColor = Color.White;
+            this._grid.BorderStyle = BorderStyle.None;
+            this._grid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(240, 244, 248);
+            this._grid.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            this._grid.ColumnHeadersHeight = 36;
+            this._grid.DefaultCellStyle.Font = new Font("Segoe UI", 9F);
+            this._grid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(222, 235, 247);
+            this._grid.DefaultCellStyle.SelectionForeColor = Color.FromArgb(31, 41, 55);
+            this._grid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 250, 252);
+            this._grid.Dock = DockStyle.Fill;
+            this._grid.EnableHeadersVisualStyles = false;
+            this._grid.MultiSelect = false;
+            this._grid.ReadOnly = true;
+            this._grid.RowHeadersVisible = false;
+            this._grid.RowTemplate.Height = 34;
+            this._grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this._studentNumberColumn.Name = "StudentNumberColumn";
+            this._studentNumberColumn.HeaderText = "Student No.";
+            this._studentNumberColumn.DataPropertyName = "StudentNumber";
+            this._studentNumberColumn.Width = 120;
+            this._studentNameColumn.Name = "StudentNameColumn";
+            this._studentNameColumn.HeaderText = "Name";
+            this._studentNameColumn.DataPropertyName = "FullName";
+            this._studentNameColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this._studentNameColumn.FillWeight = 30F;
+            this._emailColumn.Name = "EmailColumn";
+            this._emailColumn.HeaderText = "Email";
+            this._emailColumn.DataPropertyName = "Email";
+            this._emailColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this._emailColumn.FillWeight = 28F;
+            this._courseColumn.Name = "CourseColumn";
+            this._courseColumn.HeaderText = "Course";
+            this._courseColumn.DataPropertyName = "Course";
+            this._courseColumn.Width = 90;
+            this._yearColumn.Name = "YearColumn";
+            this._yearColumn.HeaderText = "Year";
+            this._yearColumn.DataPropertyName = "YearLevel";
+            this._yearColumn.Width = 55;
+            this._sectionColumn.Name = "SectionColumn";
+            this._sectionColumn.HeaderText = "Section";
+            this._sectionColumn.DataPropertyName = "Section";
+            this._sectionColumn.Width = 80;
+            this._rfidTagColumn.Name = "RfidTagColumn";
+            this._rfidTagColumn.HeaderText = "RFID Tag";
+            this._rfidTagColumn.DataPropertyName = "RfidTag";
+            this._rfidTagColumn.Width = 120;
+            this._statusColumn.Name = "Status";
+            this._statusColumn.HeaderText = "Status";
+            this._statusColumn.Width = 80;
+            this._grid.Columns.AddRange(new DataGridViewColumn[] { this._studentNumberColumn, this._studentNameColumn, this._emailColumn, this._courseColumn, this._yearColumn, this._sectionColumn, this._rfidTagColumn, this._statusColumn });
+
+
+
+
+
+
+
+
+            this._grid.CellFormatting += new DataGridViewCellFormattingEventHandler(this.Grid_CellFormatting);
+            this._empty.Dock = DockStyle.Bottom;
+            this._empty.Font = new Font("Segoe UI", 9F);
+            this._empty.ForeColor = Color.FromArgb(107, 114, 128);
+            this._empty.Height = 32;
+            this._empty.Text = "No students match the current filters.";
+            this._empty.TextAlign = ContentAlignment.MiddleCenter;
+            this._gridCard.Controls.Add(this._grid);
+            this._gridCard.Controls.Add(this._empty);
+            this._rootLayout.Controls.Add(this._gridCard, 0, 1);
+            this.AutoScaleDimensions = new SizeF(7F, 15F);
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.BackColor = Color.FromArgb(244, 247, 250);
+            this.Controls.Add(this._rootLayout);
+            this.Name = "StudentsForm";
+            this.Text = "Students";
+            ((System.ComponentModel.ISupportInitialize)(this._grid)).EndInit();
+            this.ResumeLayout(false);
+        }
+    }
+}
