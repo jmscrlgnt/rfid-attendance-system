@@ -1,5 +1,22 @@
 # JCG Attendance System — Setup & Usage Instructions
 
+## Quick Start
+
+If Visual Studio and .NET Framework 4.8 are already installed:
+
+1. Clone or download this repository.
+2. Open `JCGAttendanceSystem.sln` in Visual Studio.
+3. Allow NuGet packages to restore.
+4. Select **Build > Clean Solution**.
+5. Select **Build > Rebuild Solution**.
+6. Confirm the project builds with **0 errors**.
+7. Press **F5** to run the application.
+8. On first launch, create the Administrator account when prompted.
+
+> The application stores its SQLite database under `%LOCALAPPDATA%\JCGAttendanceSystem`, so the runtime data is separate from the GitHub source folder.
+
+---
+
 ## Requirements
 
 Before running the project, install:
